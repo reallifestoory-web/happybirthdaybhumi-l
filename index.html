@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bhumi</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff66a3,#ffd6e8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px 0;
+}
+
+.card{
+    width:90%;
+    max-width:380px;
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    object-position:center 25%;
+    border:5px solid #ff2d7a;
+    margin-bottom:15px;
+    cursor:pointer;
+}
+
+h1{
+    color:#ff2d7a;
+    margin-bottom:15px;
+}
+
+p{
+    color:#555;
+    line-height:1.6;
+    font-size:18px;
+}
+
+button{
+    margin-top:20px;
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:#ff2d7a;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img id="photo" src="/.netlify/images?url=/img/bhumi.jpg&w=320&fm=webp" alt="Bhumi">
+
+<h1>🎉 Happy Birthday Bhumi 🎂</h1>
+
+<p>
+May your birthday be filled with love, laughter,
+beautiful memories, happiness and endless smiles. 💖✨
+Have the most wonderful day ever!
+</p>
+
+<button onclick="surprise()">🎁 Open Surprise</button>
+
+<input type="file" id="file" accept="image/*" style="display:none">
+
+</div>
+
+<script>
+const file=document.getElementById("file");
+const photo=document.getElementById("photo");
+
+photo.onclick=()=>{
+file.click();
+}
+
+file.onchange=function(){
+if(!this.files[0]) return;
+const reader=new FileReader();
+reader.onload=function(e){
+photo.src=e.target.result;
+}
+reader.readAsDataURL(this.files[0]);
+}
+
+function surprise(){
+alert("🎉 Happy Birthday Bhumi! 🎂\n\nWishing you a day filled with happiness, love and success. 💖✨");
+}
+</script>
+
+</body>
+</html>
